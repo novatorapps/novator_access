@@ -61,7 +61,7 @@
                     <div class="alert alert-warning d-flex align-items-center mt-3" role="status" invisible="pro_installed">
                         <div class="flex-grow-1">
                             <b>Access Manager Pro</b>: hide or lock fields, buttons and tabs, restrict records by condition,
-                            block create, edit, delete, archive or duplicate per document type, Explain Access and profile export.
+                            block create, edit, delete, archive or duplicate per document type, chatter and filter rules, Explain Access and profile export.
                         </div>
                         <button name="action_pro" type="object" string="See Access Manager Pro" class="btn-primary ms-3"/>
                     </div>
