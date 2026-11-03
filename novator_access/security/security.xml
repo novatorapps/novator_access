@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="module_category_nacc" model="ir.module.category">
+        <field name="name">Access Manager</field>
+        <field name="sequence">91</field>
+    </record>
+</odoo>
