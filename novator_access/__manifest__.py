@@ -2,7 +2,7 @@
     'name': 'Access Manager: Hide Menus & Read-Only Users',
     'summary': 'Hide menus per user, make users read-only, turn off developer mode, import and export. '
                'Free, no coding.',
-    'version': '20.0.1.0.0',
+    'version': '20.0.1.0.1',
     'category': 'Extra Tools',
     'author': 'Novator Technologies',
     'website': 'https://www.novator.co',
