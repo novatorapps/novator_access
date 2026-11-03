@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_users_form_nacc" model="ir.ui.view">
+        <field name="name">res.users.form.nacc</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Access Profiles" name="nacc_profiles" groups="base.group_system">
+                    <field name="nacc_profile_ids">
+                        <tree>
+                            <field name="name"/>
+                            <field name="read_only"/>
+                            <field name="disable_debug"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
