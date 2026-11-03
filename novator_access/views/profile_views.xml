@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_nacc_profile_tree" model="ir.ui.view">
+        <field name="name">nacc.profile.tree</field>
+        <field name="model">nacc.profile</field>
+        <field name="arch" type="xml">
+            <list decoration-muted="not active">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="user_ids" widget="many2many_tags"/>
+                <field name="company_ids" widget="many2many_tags" groups="base.group_multi_company" optional="show"/>
+                <field name="read_only" optional="show"/>
+                <field name="disable_debug" optional="show"/>
+                <field name="hide_import" optional="hide"/>
+                <field name="hide_export" optional="hide"/>
+                <field name="active" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_nacc_profile_form" model="ir.ui.view">
+        <field name="name">nacc.profile.form</field>
+        <field name="model">nacc.profile</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="pro_installed" invisible="1"/>
+                <sheet>
+                    <widget name="web_ribbon" title="Off" bg_color="text-bg-secondary" invisible="active"/>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" placeholder="e.g. Warehouse staff"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="user_ids" widget="many2many_tags" placeholder="Users this profile applies to"/>
+                            <field name="company_ids" widget="many2many_tags" groups="base.group_multi_company" placeholder="Every company"/>
+                            <field name="active"/>
+                        </group>
+                        <group string="Restrictions">
+                            <field name="read_only"/>
+                            <field name="disable_debug"/>
+                            <field name="hide_import"/>
+                            <field name="hide_export"/>
+                        </group>
+                    </group>
+                    <div class="alert alert-info" role="status">
+                        Administrators (Settings) are never restricted, so nobody can lock themselves out.
+                        Users get the restrictions of all their profiles together.
+                    </div>
+                    <notebook>
+                        <page string="Hidden Menus" name="menus">
+                            <field name="hide_menu_ids">
+                                <list>
+                                    <field name="complete_name"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Notes" name="notes">
+                            <field name="note" placeholder="Why this profile exists, who asked for it..."/>
+                        </page>
+                    </notebook>
+                    <div class="alert alert-warning d-flex align-items-center mt-3" role="status" invisible="pro_installed">
+                        <div class="flex-grow-1">
+                            <b>Access Manager Pro</b>: hide or lock fields, buttons and tabs, restrict records by condition,
+                            block create, edit, delete, archive or duplicate per document type, Explain Access and profile export.
+                        </div>
+                        <button name="action_pro" type="object" string="See Access Manager Pro" class="btn-primary ms-3"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_nacc_profile_search" model="ir.ui.view">
+        <field name="name">nacc.profile.search</field>
+        <field name="model">nacc.profile</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="user_ids"/>
+                <filter name="inactive" string="Off" domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+    <record id="action_nacc_profile" model="ir.actions.act_window">
+        <field name="name">Access Profiles</field>
+        <field name="res_model">nacc.profile</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create your first access profile</p>
+            <p>Pick the users, then hide menus, make them read-only, or turn off developer mode, import and export.</p>
+        </field>
+    </record>
+</odoo>

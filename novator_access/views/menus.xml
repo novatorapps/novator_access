@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_nacc_root" name="Access Manager" web_icon="novator_access,static/description/icon.png"
+              groups="base.group_system" sequence="96"/>
+    <menuitem id="menu_nacc_profiles" name="Access Profiles" parent="menu_nacc_root" action="action_nacc_profile" sequence="10"/>
+    <menuitem id="menu_nacc_profiles_settings" name="Access Profiles" parent="base.menu_users" action="action_nacc_profile" sequence="30"/>
+</odoo>
